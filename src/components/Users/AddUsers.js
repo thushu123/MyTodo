@@ -7,6 +7,14 @@ function AddUsers(props) {
     const addUserHandler = (event) => {
         event.preventDefault();
         console.log(enteredUsername, enteredAge);
+        if(enteredUsername.trim().length === 0 || enteredAge.trim().length === 0){
+            return ;
+        }
+        if (+enteredAge <1 ){
+            return;
+        }
+        setUsername('');
+        setAge('');
     }
     const userNameHandler = (event) => {
         setUsername(event.target.value);
@@ -46,7 +54,7 @@ function AddUsers(props) {
                             <div className="form-group row">
                                 <label htmlFor="age" className="col-sm-2 col-form-label">Age</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="form-control" id="age" value={enteredAge} placeholder="Age" onChange={ageHandler} />
+                                    <input type="number" className="form-control" id="age" value={enteredAge} placeholder="Age" onChange={ageHandler} />
                                 </div>
                             </div>
                             <Button type="submit">Add User</Button>
