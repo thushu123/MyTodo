@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import AddUsers from './components/Users/AddUsers';
-
+import UsersList from './components/Users/UsersList';
+import TestItems from './components/Users/TestItems';
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,8 @@ function App() {
         </a>
       </header> */}
       <AddUsers></AddUsers>
+      <UsersList users={[]}></UsersList>
+      {/* <TestItems></TestItems> */}
     </div>
   );
 }

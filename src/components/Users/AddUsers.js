@@ -4,16 +4,28 @@ import { Bootstrap, Grid, Row, Col, Container, Form, Button } from 'react-bootst
 function AddUsers(props) {
     const [enteredUsername, setUsername] = useState('');
     const [enteredAge, setAge] = useState('');
+    const [users , setUsers] = useState([]);
     const addUserHandler = (event) => {
         event.preventDefault();
-        console.log(enteredUsername, enteredAge);
         if(enteredUsername.trim().length === 0 || enteredAge.trim().length === 0){
-            return ;
+            alert('Username and Age cannot be empty');
+        
         }
         if (+enteredAge <1 ){
-            return;
+           alert('Age cannot be less than one');
         }
-        setUsername('');
+        // console.log(enteredUsername, enteredAge);
+        //  setUsers(prevUsers => [...prevUsers, {
+        //           id: prevUsers.length,
+        //           value: getRandomNumber()
+        //         }]);
+        // setUsers( users => [...users, `${users.length}`]);
+        setUsers([...users, `${users.length}`]);
+        
+
+        console.log('users' , users);
+
+        setUsername(''); 
         setAge('');
     }
     const userNameHandler = (event) => {
