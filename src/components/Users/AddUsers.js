@@ -11,20 +11,17 @@ function AddUsers(props) {
             alert('Username and Age cannot be empty');
         
         }
-        if (+enteredAge <1 ){
+       else if (+enteredAge <1 ){
            alert('Age cannot be less than one');
         }
-        // console.log(enteredUsername, enteredAge);
-        //  setUsers(prevUsers => [...prevUsers, {
-        //           id: prevUsers.length,
-        //           value: getRandomNumber()
-        //         }]);
-        // setUsers( users => [...users, `${users.length}`]);
-        setUsers([...users, `${users.length}`]);
-        
-
-        console.log('users' , users);
-
+        props.onAddUser(enteredUsername , enteredAge);
+        // setUsers([...users, `${users.length}`]);
+        //  setUsers((prevUsers) => {
+        //     return [... prevUsers , {name : enteredUsername , age : enteredAge}]
+        //  });
+        // console.log('entries' ,enteredUsername , enteredAge);
+        // console.log('adduserfunctionprops',props.onAddUser(enteredUsername,enteredAge));
+   
         setUsername(''); 
         setAge('');
     }
@@ -50,8 +47,8 @@ function AddUsers(props) {
                         <Button type="submit">Add User</Button>
                     </Form> */}
 
-            <div class="container">
-                <div class="row">
+            <div className="container">
+                <div className="row">
                     <div className="col-md-6">
                         <h2>Add User</h2>
 
