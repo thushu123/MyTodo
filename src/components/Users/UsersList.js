@@ -6,17 +6,11 @@ function UsersList(props) {
     console.log('mapping', props.users.map((user)=>(
     {user}
     )));
-
-    // if(props.users){
-    //   const  usersList = props.users.map(user => (
-    //         <h2>{user.name} {user.age}</h2>
-    //     ))
-    // }
     return (
-        <div>
-           
-        {/* {usersList } */}
-        <ul>
+        
+            
+   
+     <ul>
          {props.users.map((user) => (
                 <li>
                     {user.name} {user.age}
@@ -25,9 +19,10 @@ function UsersList(props) {
             
            
         </ul>
+      
         
 
-        </div>
+    
     )
 }
 
