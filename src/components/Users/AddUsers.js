@@ -28,6 +28,8 @@ function AddUsers(props) {
         //     setValid(true);
         // }
         //firstname
+        props.onAddUser(enteredFirstName ,enteredLastName,enteredEmail, enteredAge);
+
         if(!enteredFirstName){
             setValid(false);
             setErrors({...errors, "firstName" : "cannot be empty"});
@@ -62,10 +64,10 @@ function AddUsers(props) {
             setErrors({...errors,"age" : "cannot be empty"});
          }
         setSubmited(true);
-        if(!errors){
-            props.onAddUser(enteredFirstName ,enteredLastName,enteredEmail, enteredAge);
+        // if(!errors){
+        //     props.onAddUser(enteredFirstName ,enteredLastName,enteredEmail, enteredAge);
 
-        }
+        // }
         console.log('errors',errors);
 
         setFirstName('');
@@ -99,7 +101,7 @@ function AddUsers(props) {
                     <div className="form-group row">
                         <label htmlFor="firstname" className="col-sm-2 col-form-label">FirstName</label>
                         <div className="col-sm-10">
-                            <input type="text" className="form-control" id="username" value={enteredFirstName} placeholder="FirstName" onChange={firstNameNameHandler} />
+                            <input type="text" className="form-control" id="username" value={enteredFirstName} placeholder="FirstName" onChange={firstNameNameHandler} required/>
                         </div>
                         {/* {submited && ! enteredFirstName ? <span>FirstName is required</span>:""} */}
                         {/* <span style={{color: "red"}}>{errors.firstName}</span> */}
@@ -109,7 +111,7 @@ function AddUsers(props) {
                     <div className="form-group row ">
                         <label htmlFor="lastname" className="col-sm-2 col-form-label">Lastname</label>
                         <div className="col-sm-10">
-                            <input type="text" className="form-control" id="lastname" value={enteredLastName} placeholder="lastname" onChange={lastNameHandler} />
+                            <input type="text" className="form-control" id="lastname" value={enteredLastName} placeholder="lastname" onChange={lastNameHandler} required/>
                             {/* <span style={{color: "red"}}>{errors.lastName}</span>
                            <br/> */}
                         </div>
@@ -118,7 +120,7 @@ function AddUsers(props) {
                     <div className="form-group row ">
                         <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
-                            <input type="email" className="form-control" id="email" value={enteredEmail} placeholder="email" onChange={emailHandler} />
+                            <input type="email" className="form-control" id="email" value={enteredEmail} placeholder="email" onChange={emailHandler} required/>
                         
                             {/* <span style={{color: "red"}}>{errors.email}</span>
                             <br/> */}
@@ -130,7 +132,7 @@ function AddUsers(props) {
                     <div className="form-group row">
                         <label htmlFor="age" className="col-sm-2 col-form-label">Age</label>
                         <div className="col-sm-10">
-                            <input type="number" className="form-control" id="age" value={enteredAge} placeholder="Age" onChange={ageHandler} />
+                            <input type="number" className="form-control" id="age" value={enteredAge} placeholder="Age" onChange={ageHandler} required />
                             {/* <span style={{color: "red"}}>{errors.age}</span>
                             <br/> */}
 
