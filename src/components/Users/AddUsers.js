@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Bootstrap, Grid, Row, Col, Container, Form, Button } from 'reactstrap';
+import { Bootstrap, Grid, Row, Col, Container, Form, Button, FormGroup, Label, Alert } from 'reactstrap';
 import { useForm } from 'react-hook-form';
-
 function AddUsers(props) {
     const [enteredFirstName, setFirstName] = useState('');
     const [enteredLastName, setLastName] = useState('')
@@ -92,63 +91,52 @@ function AddUsers(props) {
 
     return (
         <div>
-            {/* <ErrorModal title="An error occured!" message="Something went wrong!" /> */}
-            <div className="input-wrapper">
-            <div className="form-container">
-                {/* <div className="row">
-                    <div className="col-md-6"> */}
-                <h2>Add User</h2>
-
-                <Form className="register-form" onSubmit={addUserHandler}>
-                    {submited && valid ? <div className="success-message ">success !!!</div> : ""}
-                    <div className="form-group row">
-                        <label htmlFor="firstname" className="col-sm-2 col-form-label">FirstName</label>
-                        <div className="col-sm-10">
-                            <input type="text" className="form-control" id="username" value={enteredFirstName} placeholder="FirstName" onChange={firstNameNameHandler} required />
-                        </div>
-                        {/* {submited && ! enteredFirstName ? <span>FirstName is required</span>:""} */}
-                        {/* <span style={{color: "red"}}>{errors.firstName}</span> */}
-
-                    </div>
-
-                    <div className="form-group row ">
-                        <label htmlFor="lastname" className="col-sm-2 col-form-label">Lastname</label>
-                        <div className="col-sm-10">
-                            <input type="text" className="form-control" id="lastname" value={enteredLastName} placeholder="lastname" onChange={lastNameHandler} required />
-                            {/* <span style={{color: "red"}}>{errors.lastName}</span>
-                           <br/> */}
-                        </div>
-                        {/* {submited && ! enteredLastName ? <span>LastName is required</span>:""} */}
-                    </div>
-                    <div className="form-group row ">
-                        <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
-                        <div className="col-sm-10">
-                            <input type="email" className="form-control" id="email" value={enteredEmail} placeholder="email" onChange={emailHandler} required />
-
-                            {/* <span style={{color: "red"}}>{errors.email}</span>
-                            <br/> */}
-                        </div>
-                        {/* {submited && ! enteredEmail ? <span>Email is required</span>:""} */}
-
-                    </div>
-
-                    <div className="form-group row">
-                        <label htmlFor="age" className="col-sm-2 col-form-label">Age</label>
-                        <div className="col-sm-10">
-                            <input type="number" className="form-control" id="age" value={enteredAge} placeholder="Age" onChange={ageHandler} required />
-                            {/* <span style={{color: "red"}}>{errors.age}</span>
-                            <br/> */}
-
-                        </div>
-                        {/* {submited && ! enteredAge? <span>Age is required</span>:""} */}
+            <Container>
 
 
-                    </div>
-                    <Button type="submit">Add User</Button>
+                <Form onSubmit={addUserHandler} inline>
+
+                    {submited && valid ? <Alert color="success">
+                        Success
+                    </Alert> : ""}
+                    <Row form>
+                        <Col md={6}>
+                            <h2>Add User</h2>
+
+
+                            <FormGroup>
+                                <Label for="firstname" className="col-sm-2">FirstName</Label>
+
+                                <input type="text" className="form-control" id="username" value={enteredFirstName} placeholder="FirstName" onChange={firstNameNameHandler} required />
+
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label for="lastname" >Lastname</Label>
+                                <input type="text" className="form-control" id="lastname" value={enteredLastName} placeholder="Lastname" onChange={lastNameHandler} required />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label for="email"  >Email</Label>
+
+                                <input type="email" className="form-control" id="email" value={enteredEmail} placeholder="email" onChange={emailHandler} required />
+                            </FormGroup>
+
+
+                            <FormGroup>
+                                <Label for="age" >Age</Label>
+                                <input type="number" className="form-control" id="age" value={enteredAge} placeholder="Age" onChange={ageHandler} required />
+                            </FormGroup>
+                            <Button type="submit">Add User</Button>
+                        </Col>
+                    </Row>
+
+
                 </Form>
-            </div>
-            </div>
+            </Container>
         </div>
+
+
 
     )
 }

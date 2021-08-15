@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { NavItem } from 'react-bootstrap';
-import { Table, List } from "reactstrap";
+import React from 'react'
+import { Table } from "reactstrap";
 
 function UsersList(props) {
     console.log('users', props.users);
