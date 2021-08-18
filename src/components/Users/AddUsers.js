@@ -80,7 +80,7 @@ function AddUsers(props) {
 
                             <FormGroup>
                                 <Label for="age" >Age</Label>
-                                <input type="number" name="age" className="form-control" id="age"  ononChange={(e) => setAge(e.target.value)}   value={enteredAge} placeholder="Age" {...register('age')} />
+                                <input type="number" name="age" className="form-control" id="age"  onChange={(e) => setAge(e.target.value)}   value={enteredAge} placeholder="Age" {...register('age')} />
                                 <p  style={{color:'red'}}> {errors.age?.message} </p>
 
                             </FormGroup>
