@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Bootstrap, Grid, Row, Col, Container, Form, Button, FormGroup, Label, Alert } from 'reactstrap';
+import { Row, Col, Container, Form, Button, FormGroup, Label, Alert } from 'reactstrap';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -21,28 +21,26 @@ function AddUsers(props) {
     const [enteredAge, setAge] = useState('');
     const [submited, setSubmited] = useState(false);
     const [valid, setValid] = useState(false)
-
     const addUserHandler = (event) => {
         event.preventDefault();
-
         props.onAddUser(enteredFirstName, enteredLastName, enteredEmail, enteredAge);
         setFirstName('');
         setLastName('');
         setEmail('');
         setAge('');
     }
-    const firstNameNameHandler = (event) => {
-        setFirstName(event.target.value);
-    }
-    const lastNameHandler = (event) => {
-        setLastName(event.target.value);
-    }
-    const emailHandler = (event) => {
-        setEmail(event.target.value);
-    }
-    const ageHandler = (event) => {
-        setAge(event.target.value);
-    }
+    // const firstNameNameHandler = (event) => {
+    //     setFirstName(event.target.value);
+    // }
+    // const lastNameHandler = (event) => {
+    //     setLastName(event.target.value);
+    // }
+    // const emailHandler = (event) => {
+    //     setEmail(event.target.value); 
+    // }
+    // const ageHandler = (event) => {
+    //     setAge(event.target.value);
+    // }
 
     return (
         <div>
@@ -59,14 +57,14 @@ function AddUsers(props) {
                             <FormGroup>
                                 <Label for="firstName" className="col-sm-2">FirstName</Label>
           
-                                <input type="text" name="firstName" className="form-control" onChange={firstNameNameHandler} id="firstName" value={enteredFirstName} placeholder="FirstName"  {...register('firstName')} />
+                                <input type="text" className="form-control"  onChange={(e) => setFirstName(e.target.value)}  id="firstName" value={enteredFirstName} placeholder="FirstName"  {...register('firstName')} />
                                 <p  style={{color:'red'}} > {errors.firstName?.message} </p>
 
                             </FormGroup>
 
                             <FormGroup>
                                 <Label for="lastName" >Lastname</Label>
-                                <input type="text" name="lastName" className="form-control" id="lastname" value={enteredLastName} onChange={lastNameHandler}  placeholder="Lastname" {...register('lastName')} />
+                                <input type="text" className="form-control" id="lastname" value={enteredLastName} onChange={(e) => setLastName(e.target.value)}  placeholder="Lastname" {...register('lastName')} />
                                 <p  style={{color:'red'}}> {errors.lastName?.message} </p>
 
                             </FormGroup>
@@ -74,7 +72,7 @@ function AddUsers(props) {
                             <FormGroup>
                                 <Label for="email"  >Email</Label>
 
-                                <input type="email" name="email" className="form-control" id="email"  onChange={emailHandler} value={enteredEmail} placeholder="email"  {...register('email')} />
+                                <input type="email" name="email" className="form-control" id="email"  onChange={(e) => setEmail(e.target.value)}  value={enteredEmail} placeholder="email"  {...register('email')} />
                                 <p  style={{color:'red'}}> {errors.email?.message} </p>
 
                             </FormGroup>
@@ -82,7 +80,7 @@ function AddUsers(props) {
 
                             <FormGroup>
                                 <Label for="age" >Age</Label>
-                                <input type="number" name="age" className="form-control" id="age"  onChange={ageHandler}  value={enteredAge} placeholder="Age" {...register('age')} />
+                                <input type="number" name="age" className="form-control" id="age"  ononChange={(e) => setAge(e.target.value)}   value={enteredAge} placeholder="Age" {...register('age')} />
                                 <p  style={{color:'red'}}> {errors.age?.message} </p>
 
                             </FormGroup>
